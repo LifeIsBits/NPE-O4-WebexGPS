@@ -1,4 +1,3 @@
-
 # Libraries
 import requests
 import json
@@ -65,7 +64,9 @@ while True:
  
 
 def main():
+    
     while True:
+        
         # always add 1 second of delay to the loop to not go over a rate limit of API calls
         time.sleep(1)
 
@@ -97,13 +98,13 @@ def main():
         # store the text of the first message in the array
         message = messages[0]["text"]
         print("Received message: " + message)
-        
+
         # check if the text of the message starts with the magic character "/gps" to start the bot
-        #
         if message.find("/gps") == 0:
             # Print Instructions to webex teams room
-            Instructions = ("Geef je startlocatie op door '/start/' te typen voor je locatie, bijvoorbeeld: /start/Brugge)" +
-                            "\nTyp '/stop om te stoppen."
+            Instructions = ("Geef je startlocatie op door '/start/' te typen, gevolgd door je locatie en land (bijvoorbeeld: /start/Brugge, Belgium)." +
+                            "\nEen volledig adres geef je op volgende manier in: '/start/5,rijselstraat,brugge,belgium'" +
+                            "\nTyp '/stop' om te stoppen (Typ vervolgens '/gps' om opnieuw te starten)."
                             )
             
             # the Webex Teams HTTP headers, including the Content-Type header for the POST JSON data
@@ -165,7 +166,7 @@ def main():
                 if message.find("/start/") == 0:
                     orig = message[7:]
                     # Print Instructions to webex teams room
-                    Instructions = "Geef je bestemming op door '/dest/' te typen voor je locatie, bijvoorbeeld: /dest/Gent)"
+                    Instructions = "Geef je bestemming op door '/dest/' te typen, gevolgd door je locatie en land (bijvoorbeeld: /dest/Gent, Belgium)."
                     HTTPHeaders = { 
                                          "Authorization": accessToken,
                                          "Content-Type": "application/json"
