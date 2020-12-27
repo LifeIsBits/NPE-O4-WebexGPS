@@ -244,26 +244,9 @@ def main():
                             str("{:.2f}".format((json_data["route"]["fuelUsed"])*3.78)) +
                                 "\n=============================================\n"
                                 )
-                                
-                                
                                 for each in json_data["route"]["legs"][0]["maneuvers"]:
                                     Directions+=((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"])*1.61) + " km)\n"))
-                                
-                                #for each in json_data["route"]["legs"][0]["maneuvers"]:
-                                #    str+=(each["narrative"]) + " (" + str("{:.2f}".format((each["distance"])*1.61) + " km)")
-                                 
-                                
 
-
-
-                                #for each in json_data["route"]["legs"][0]["maneuvers"]:
-                                #    Directions2 = ((each["narrative"]) + " (" + str("{:.2f}".format(each["distance"]*1.61) + " km)") +  
-                                #"\n============================================="
-                                #)
-                                
-                                
-                                  
-                                
                                 # the Webex Teams HTTP headers, including the Content-Type header for the POST JSON data
                                 HTTPHeaders = { 
                                                      "Authorization": accessToken,
